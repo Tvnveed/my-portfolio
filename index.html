@@ -14,11 +14,9 @@
       --accent3: #2a9d8f;
       --card: #fffdf7;
       --border: #1a1a1a;
-      --stamp: #e63946;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -33,7 +31,6 @@
       cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Ccircle cx='10' cy='10' r='4' fill='%23e63946'/%3E%3C/svg%3E") 10 10, auto;
     }
 
-    /* ── NOISE OVERLAY ── */
     body::before {
       content: '';
       position: fixed;
@@ -44,7 +41,7 @@
       opacity: 0.5;
     }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -53,16 +50,9 @@
       border-bottom: 3px solid var(--accent);
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 0 2rem;
+      justify-content: flex-start;
       height: 52px;
-    }
-
-    .nav-logo {
-      font-family: 'VT323', monospace;
-      font-size: 1.6rem;
-      color: var(--accent2);
-      letter-spacing: 2px;
+      padding: 0 2rem;
     }
 
     .nav-links {
@@ -81,16 +71,21 @@
       font-size: 0.75rem;
       letter-spacing: 2px;
       text-transform: uppercase;
-      border-left: 1px solid #333;
+      border-right: 1px solid #333;
       transition: background 0.15s, color 0.15s;
     }
 
-    .nav-links a:hover {
-      background: var(--accent);
-      color: #fff;
+    .nav-links a:hover { background: var(--accent); color: #fff; }
+
+    .nav-logo {
+      font-family: 'VT323', monospace;
+      font-size: 1.6rem;
+      color: var(--accent2);
+      letter-spacing: 2px;
+      margin-left: auto;
     }
 
-    /* ── HERO ── */
+    /* HERO */
     #hero {
       min-height: 100vh;
       display: flex;
@@ -103,8 +98,7 @@
 
     .hero-tape {
       position: absolute;
-      top: 90px;
-      right: -20px;
+      top: 90px; right: -20px;
       background: var(--accent2);
       color: var(--ink);
       font-family: 'VT323', monospace;
@@ -125,9 +119,7 @@
       animation: blink-cursor 1s step-end infinite;
     }
 
-    @keyframes blink-cursor {
-      50% { opacity: 0.5; }
-    }
+    @keyframes blink-cursor { 50% { opacity: 0.5; } }
 
     .hero-name {
       font-family: 'Bebas Neue', sans-serif;
@@ -147,8 +139,7 @@
     .hero-name::after {
       content: attr(data-text);
       position: absolute;
-      top: 5px;
-      left: 5px;
+      top: 5px; left: 5px;
       color: var(--accent2);
       z-index: -1;
       opacity: 0.5;
@@ -181,8 +172,7 @@
     }
 
     .status-dot {
-      width: 8px;
-      height: 8px;
+      width: 8px; height: 8px;
       border-radius: 50%;
       background: #4ade80;
       animation: pulse 1.5s ease-in-out infinite;
@@ -195,8 +185,7 @@
 
     .hero-deco {
       position: absolute;
-      right: 5%;
-      bottom: 10%;
+      right: 5%; bottom: 10%;
       font-family: 'VT323', monospace;
       font-size: 8rem;
       color: var(--ink);
@@ -207,8 +196,7 @@
 
     .hero-scroll {
       position: absolute;
-      bottom: 2rem;
-      left: 3rem;
+      bottom: 2rem; left: 3rem;
       font-size: 0.7rem;
       letter-spacing: 3px;
       color: #888;
@@ -221,12 +209,11 @@
     .hero-scroll::before {
       content: '';
       display: block;
-      width: 40px;
-      height: 1px;
+      width: 40px; height: 1px;
       background: #888;
     }
 
-    /* ── SECTIONS ── */
+    /* SECTIONS */
     section { padding: 6rem 3rem; }
 
     .section-label {
@@ -241,10 +228,7 @@
       gap: 0.5rem;
     }
 
-    .section-label::before {
-      content: '//';
-      color: var(--accent3);
-    }
+    .section-label::before { content: '//'; color: var(--accent3); }
 
     .section-title {
       font-family: 'Bebas Neue', sans-serif;
@@ -254,7 +238,7 @@
       margin-bottom: 3rem;
     }
 
-    /* ── ABOUT ── */
+    /* ABOUT */
     #about {
       background: var(--ink);
       color: var(--bg);
@@ -273,50 +257,24 @@
       align-items: start;
     }
 
-    .about-text p {
-      margin-bottom: 1rem;
-      color: #ccc;
-      font-size: 0.85rem;
-      line-height: 1.9;
-    }
-
+    .about-text p { margin-bottom: 1rem; color: #ccc; font-size: 0.85rem; line-height: 1.9; }
     .about-text p strong { color: var(--accent2); }
 
-    .about-facts {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
+    .about-facts { display: flex; flex-direction: column; gap: 1rem; }
 
     .fact-card {
       border: 1px solid #333;
       padding: 1rem 1.2rem;
-      position: relative;
       transition: border-color 0.2s, transform 0.2s;
     }
 
-    .fact-card:hover {
-      border-color: var(--accent2);
-      transform: translateX(4px);
-    }
-
-    .fact-label {
-      font-size: 0.65rem;
-      letter-spacing: 3px;
-      color: var(--accent2);
-      text-transform: uppercase;
-      margin-bottom: 0.3rem;
-    }
-
-    .fact-value {
-      font-size: 0.85rem;
-      color: #eee;
-    }
+    .fact-card:hover { border-color: var(--accent2); transform: translateX(4px); }
+    .fact-label { font-size: 0.65rem; letter-spacing: 3px; color: var(--accent2); text-transform: uppercase; margin-bottom: 0.3rem; }
+    .fact-value { font-size: 0.85rem; color: #eee; }
 
     .about-deco {
       position: absolute;
-      bottom: -2rem;
-      right: -2rem;
+      bottom: -2rem; right: -2rem;
       font-family: 'Bebas Neue', sans-serif;
       font-size: 12rem;
       color: #fff;
@@ -325,7 +283,7 @@
       user-select: none;
     }
 
-    /* ── PROJECTS ── */
+    /* PROJECTS */
     #projects { background: var(--bg); }
 
     .projects-grid {
@@ -343,10 +301,7 @@
       box-shadow: 4px 4px 0 var(--ink);
     }
 
-    .project-card:hover {
-      transform: translate(-3px, -3px);
-      box-shadow: 7px 7px 0 var(--ink);
-    }
+    .project-card:hover { transform: translate(-3px, -3px); box-shadow: 7px 7px 0 var(--ink); }
 
     .project-num {
       font-family: 'VT323', monospace;
@@ -355,8 +310,7 @@
       line-height: 1;
       opacity: 0.3;
       position: absolute;
-      top: 1rem;
-      right: 1.2rem;
+      top: 1rem; right: 1.2rem;
     }
 
     .project-tag {
@@ -370,26 +324,10 @@
       margin-bottom: 0.8rem;
     }
 
-    .project-name {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.6rem;
-      letter-spacing: 2px;
-      margin-bottom: 0.5rem;
-    }
+    .project-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 2px; margin-bottom: 0.5rem; }
+    .project-desc { font-size: 0.78rem; color: #555; line-height: 1.8; margin-bottom: 1.2rem; }
 
-    .project-desc {
-      font-size: 0.78rem;
-      color: #555;
-      line-height: 1.8;
-      margin-bottom: 1.2rem;
-    }
-
-    .project-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 1.2rem;
-    }
+    .project-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.2rem; }
 
     .stack-pill {
       font-size: 0.6rem;
@@ -416,18 +354,10 @@
 
     .project-link:hover { gap: 0.8rem; }
 
-    /* ── CV ── */
-    #cv {
-      background: #f0ebe0;
-      border-top: 3px solid var(--ink);
-      border-bottom: 3px solid var(--ink);
-    }
+    /* CV */
+    #cv { background: #f0ebe0; border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink); }
 
-    .cv-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-    }
+    .cv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
 
     .cv-col-title {
       font-family: 'VT323', monospace;
@@ -449,48 +379,19 @@
 
     .cv-item::before {
       content: '';
-      width: 10px;
-      height: 10px;
+      width: 10px; height: 10px;
       background: var(--accent);
       position: absolute;
-      left: -6px;
-      top: 6px;
+      left: -6px; top: 6px;
       border: 2px solid var(--ink);
     }
 
-    .cv-date {
-      font-size: 0.65rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--accent3);
-      margin-bottom: 0.2rem;
-    }
+    .cv-date { font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; color: var(--accent3); margin-bottom: 0.2rem; }
+    .cv-role { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 1px; }
+    .cv-company { font-size: 0.75rem; color: #666; margin-bottom: 0.3rem; font-style: italic; }
+    .cv-detail { font-size: 0.75rem; color: #555; line-height: 1.8; }
 
-    .cv-role {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.3rem;
-      letter-spacing: 1px;
-    }
-
-    .cv-company {
-      font-size: 0.75rem;
-      color: #666;
-      margin-bottom: 0.3rem;
-      font-style: italic;
-    }
-
-    .cv-detail {
-      font-size: 0.75rem;
-      color: #555;
-      line-height: 1.8;
-    }
-
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.5rem;
-    }
+    .skills-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem; }
 
     .skill-badge {
       font-size: 0.65rem;
@@ -503,10 +404,7 @@
       cursor: default;
     }
 
-    .skill-badge:hover {
-      background: var(--ink);
-      color: var(--bg);
-    }
+    .skill-badge:hover { background: var(--ink); color: var(--bg); }
 
     .cv-download {
       display: inline-flex;
@@ -525,39 +423,17 @@
       transition: transform 0.15s, box-shadow 0.15s;
     }
 
-    .cv-download:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 6px 6px 0 var(--ink);
-    }
+    .cv-download:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
 
-    /* ── CONTACT ── */
-    #contact {
-      background: var(--ink);
-      color: var(--bg);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
+    /* CONTACT */
+    #contact { background: var(--ink); color: var(--bg); text-align: center; position: relative; overflow: hidden; }
     #contact .section-title { color: var(--bg); font-size: clamp(3rem, 8vw, 7rem); }
     #contact .section-label { color: var(--accent2); justify-content: center; }
     #contact .section-label::before { color: var(--accent); }
 
-    .contact-sub {
-      color: #888;
-      font-size: 0.8rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 3rem;
-    }
+    .contact-sub { color: #888; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 3rem; }
 
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 3rem;
-    }
+    .contact-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem; }
 
     .contact-btn {
       display: inline-flex;
@@ -569,52 +445,21 @@
       letter-spacing: 2px;
       text-transform: uppercase;
       border: 2px solid;
-      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+      transition: transform 0.15s, box-shadow 0.15s;
     }
 
-    .contact-btn.primary {
-      background: var(--accent);
-      color: #fff;
-      border-color: var(--accent);
-      box-shadow: 4px 4px 0 var(--accent2);
-    }
+    .contact-btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); box-shadow: 4px 4px 0 var(--accent2); }
+    .contact-btn.secondary { background: transparent; color: var(--bg); border-color: #444; box-shadow: 4px 4px 0 #333; }
+    .contact-btn.primary:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--accent2); }
+    .contact-btn.secondary:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 #555; }
 
-    .contact-btn.secondary {
-      background: transparent;
-      color: var(--bg);
-      border-color: #444;
-      box-shadow: 4px 4px 0 #333;
-    }
+    .contact-form { max-width: 540px; margin: 0 auto; text-align: left; }
 
-    .contact-btn:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 6px 6px 0;
-    }
+    .form-row { margin-bottom: 1rem; }
 
-    .contact-btn.primary:hover { box-shadow: 6px 6px 0 var(--accent2); }
-    .contact-btn.secondary:hover { box-shadow: 6px 6px 0 #555; }
+    .form-row label { display: block; font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; color: var(--accent2); margin-bottom: 0.4rem; }
 
-    .contact-form {
-      max-width: 540px;
-      margin: 0 auto;
-      text-align: left;
-    }
-
-    .form-row {
-      margin-bottom: 1rem;
-    }
-
-    .form-row label {
-      display: block;
-      font-size: 0.65rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--accent2);
-      margin-bottom: 0.4rem;
-    }
-
-    .form-row input,
-    .form-row textarea {
+    .form-row input, .form-row textarea {
       width: 100%;
       background: #111;
       border: 1.5px solid #333;
@@ -627,11 +472,7 @@
       resize: vertical;
     }
 
-    .form-row input:focus,
-    .form-row textarea:focus {
-      border-color: var(--accent);
-    }
-
+    .form-row input:focus, .form-row textarea:focus { border-color: var(--accent); }
     .form-row textarea { min-height: 120px; }
 
     .form-submit {
@@ -650,15 +491,11 @@
       margin-top: 0.5rem;
     }
 
-    .form-submit:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 6px 6px 0 var(--accent2);
-    }
+    .form-submit:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--accent2); }
 
     .contact-deco {
       position: absolute;
-      left: -3rem;
-      bottom: -3rem;
+      left: -3rem; bottom: -3rem;
       font-family: 'Bebas Neue', sans-serif;
       font-size: 14rem;
       color: #fff;
@@ -667,7 +504,7 @@
       user-select: none;
     }
 
-    /* ── FOOTER ── */
+    /* FOOTER */
     footer {
       background: #111;
       color: #555;
@@ -681,30 +518,11 @@
 
     footer span { color: var(--accent); }
 
-    /* ── DIVIDER ── */
-    .zigzag {
-      height: 20px;
-      background: linear-gradient(135deg, var(--ink) 25%, transparent 25%) -20px 0,
-                  linear-gradient(225deg, var(--ink) 25%, transparent 25%) -20px 0,
-                  linear-gradient(315deg, var(--ink) 25%, transparent 25%),
-                  linear-gradient(45deg, var(--ink) 25%, transparent 25%);
-      background-size: 40px 20px;
-      background-color: var(--bg);
-    }
+    /* ANIMATIONS */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── SCROLL ANIMATIONS ── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ── RESPONSIVE ── */
+    /* RESPONSIVE */
     @media (max-width: 768px) {
       section { padding: 4rem 1.5rem; }
       #hero { padding: 5rem 1.5rem 3rem; }
@@ -718,13 +536,13 @@
 
   <!-- NAV -->
   <nav>
-    <div class="nav-logo">TS_</div>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#cv">CV</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <div class="nav-logo">TS_</div>
   </nav>
 
   <!-- HERO -->
@@ -732,7 +550,7 @@
     <div class="hero-tape">✦ OPEN TO WORK ✦</div>
     <div class="hero-eyebrow">&gt; Hello, World! I'm_</div>
     <div class="hero-name" data-text="TANWEER SHAIKH">TANWEER <span>SHAIKH</span></div>
-    <p class="hero-subtitle">Developer &amp; Problem Solver — Currently looking for my next big opportunity</p>
+    <p class="hero-subtitle">Aspiring AIOps Engineer · AWS · Python · DevOps — Open to Work in UAE</p>
     <div class="hero-status">
       <span class="status-dot"></span>
       Available for hire · Let's build something great
@@ -747,9 +565,9 @@
     <h2 class="section-title">ABOUT ME</h2>
     <div class="about-grid reveal">
       <div class="about-text">
-        <p>Hey! I'm <strong>Tanweer Shaikh</strong> — a developer with a passion for crafting clean, useful, and occasionally over-engineered things.</p>
-        <p>I love turning complex problems into elegant solutions. Whether it's building scalable backends, designing intuitive UIs, or debugging that one mystery bug at 2am — I'm in.</p>
-        <p>Currently on the hunt for a role where I can contribute, grow, and ship things that actually matter. If that sounds like your team, <strong>let's talk.</strong></p>
+        <p>Hey! I'm <strong>Tanweer Shaikh</strong> — a Computer Engineering graduate from BITS Pilani Dubai, passionate about AI, DevOps, and building things that actually work.</p>
+        <p>I've trained with <strong>Emirates Group IT</strong> on Agile/Scrum and React.js, and worked as a <strong>Compliance Analyst at TÜV Rheinland</strong> where I built monitoring systems and led internal audits. I bring both technical depth and real-world professional experience.</p>
+        <p>I am looking for entry level jobs in Computer Science. If that sounds like your team, <strong>let's talk.</strong></p>
       </div>
       <div class="about-facts">
         <div class="fact-card">
@@ -758,15 +576,15 @@
         </div>
         <div class="fact-card">
           <div class="fact-label">Location</div>
-          <div class="fact-value">📍 Open to remote &amp; on-site</div>
+          <div class="fact-value">📍 Dubai, UAE</div>
         </div>
         <div class="fact-card">
           <div class="fact-label">Interests</div>
-          <div class="fact-value">💻 Web Dev · AI · Open Source</div>
+          <div class="fact-value">🤖 AIOps · DevOps · Web Dev · AI/ML</div>
         </div>
         <div class="fact-card">
           <div class="fact-label">Currently Learning</div>
-          <div class="fact-value">🧠 [Add what you're learning here]</div>
+          <div class="fact-value">🧠 Python Data Structures · AWS · DevOps</div>
         </div>
       </div>
     </div>
@@ -781,41 +599,41 @@
 
       <div class="project-card reveal">
         <div class="project-num">01</div>
-        <div class="project-tag">Web App</div>
-        <div class="project-name">Project Alpha</div>
-        <p class="project-desc">A short description of what this project does, why you built it, and what problem it solves. Keep it punchy!</p>
+        <div class="project-tag">AI / ML</div>
+        <div class="project-name">Sign Language Recognition</div>
+        <p class="project-desc">A neural network-based system that recognises sign language gestures in real time. Built to bridge communication gaps using computer vision and deep learning.</p>
         <div class="project-stack">
-          <span class="stack-pill">React</span>
-          <span class="stack-pill">Node.js</span>
-          <span class="stack-pill">MongoDB</span>
+          <span class="stack-pill">Python</span>
+          <span class="stack-pill">Neural Networks</span>
+          <span class="stack-pill">Computer Vision</span>
         </div>
-        <a href="#" class="project-link">View Project →</a>
+        <a href="https://github.com/Tvnveed" class="project-link" target="_blank">View on GitHub →</a>
       </div>
 
       <div class="project-card reveal">
         <div class="project-num">02</div>
-        <div class="project-tag">Tool / CLI</div>
-        <div class="project-name">Project Beta</div>
-        <p class="project-desc">Another project description here. What does it do? What did you learn? What are you proud of?</p>
+        <div class="project-tag">Machine Learning</div>
+        <div class="project-name">Movie Recommendation System</div>
+        <p class="project-desc">A machine learning powered recommendation engine that suggests movies based on user preferences and viewing patterns using collaborative filtering techniques.</p>
         <div class="project-stack">
           <span class="stack-pill">Python</span>
-          <span class="stack-pill">FastAPI</span>
-          <span class="stack-pill">Docker</span>
+          <span class="stack-pill">Machine Learning</span>
+          <span class="stack-pill">Data Processing</span>
         </div>
-        <a href="#" class="project-link">View Project →</a>
+        <a href="https://github.com/Tvnveed" class="project-link" target="_blank">View on GitHub →</a>
       </div>
 
       <div class="project-card reveal">
         <div class="project-num">03</div>
-        <div class="project-tag">Open Source</div>
-        <div class="project-name">Project Gamma</div>
-        <p class="project-desc">Describe your third project here. Mention any impact — users, GitHub stars, contributions, etc.</p>
+        <div class="project-tag">Web Dev</div>
+        <div class="project-name">React Web Applications</div>
+        <p class="project-desc">Dynamic and responsive web applications built during my internship at Emirates Group IT, using React.js component-based architecture and state management.</p>
         <div class="project-stack">
-          <span class="stack-pill">TypeScript</span>
-          <span class="stack-pill">Next.js</span>
-          <span class="stack-pill">Postgres</span>
+          <span class="stack-pill">React.js</span>
+          <span class="stack-pill">JavaScript</span>
+          <span class="stack-pill">Agile/Scrum</span>
         </div>
-        <a href="#" class="project-link">View Project →</a>
+        <a href="https://github.com/Tvnveed" class="project-link" target="_blank">View on GitHub →</a>
       </div>
 
     </div>
@@ -830,24 +648,31 @@
         <div class="cv-col-title">// Experience</div>
 
         <div class="cv-item">
-          <div class="cv-date">20XX – Present</div>
-          <div class="cv-role">Your Most Recent Role</div>
-          <div class="cv-company">Company Name</div>
-          <div class="cv-detail">Brief description of what you did here. Mention impact, technologies, or anything you're proud of.</div>
+          <div class="cv-date">07/2025 – 01/2026</div>
+          <div class="cv-role">Compliance Analyst</div>
+          <div class="cv-company">TÜV Rheinland · Dubai, UAE</div>
+          <div class="cv-detail">Developed and implemented a compliance monitoring system that improved efficiency. Led internal audits uncovering non-compliance incidents and recommended corrective actions.</div>
         </div>
 
         <div class="cv-item">
-          <div class="cv-date">20XX – 20XX</div>
-          <div class="cv-role">Previous Role</div>
-          <div class="cv-company">Previous Company</div>
-          <div class="cv-detail">Another entry for your previous role or internship. Keep it specific and results-focused.</div>
+          <div class="cv-date">06/2023 – 08/2023</div>
+          <div class="cv-role">IT Intern</div>
+          <div class="cv-company">Emirates Group · Dubai, UAE</div>
+          <div class="cv-detail">On-the-job training in Agile/Scrum methodology including sprint planning and iterative development. Built dynamic, responsive web applications using React.js with component-based architecture and state management.</div>
         </div>
 
         <div class="cv-item">
-          <div class="cv-date">20XX – 20XX</div>
-          <div class="cv-role">Education / Degree</div>
-          <div class="cv-company">University / Institute</div>
-          <div class="cv-detail">Degree, field of study, and any notable achievements or projects.</div>
+          <div class="cv-date">09/2021 – 01/2026</div>
+          <div class="cv-role">BE Computer Engineering</div>
+          <div class="cv-company">BITS Pilani Dubai Campus</div>
+          <div class="cv-detail">Bachelor of Engineering in Computer Engineering. Projects include Sign Language Recognition using Neural Networks and a Movie Recommendation System using Machine Learning.</div>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-date">01/2026 – 02/2026</div>
+          <div class="cv-role">Python Certifications</div>
+          <div class="cv-company">Coursera</div>
+          <div class="cv-detail">Completed "Programming for Everybody" and "Python Data Structures" — covering control flow, data parsing, key-value mapping, and backend scripting fundamentals.</div>
         </div>
 
         <a href="TANWEER-SHAIKH-CV.pdf" download class="cv-download">⬇ Download Full CV</a>
@@ -856,34 +681,37 @@
       <div>
         <div class="cv-col-title">// Skills</div>
 
-        <p style="font-size:0.75rem;color:#666;margin-bottom:1rem;">Languages &amp; Frameworks</p>
+        <p style="font-size:0.75rem;color:#666;margin-bottom:1rem;">Languages &amp; Tech</p>
         <div class="skills-grid">
-          <span class="skill-badge">JavaScript</span>
           <span class="skill-badge">Python</span>
-          <span class="skill-badge">TypeScript</span>
-          <span class="skill-badge">React</span>
-          <span class="skill-badge">Node.js</span>
-          <span class="skill-badge">Next.js</span>
-          <span class="skill-badge">SQL</span>
+          <span class="skill-badge">React.js</span>
+          <span class="skill-badge">JavaScript</span>
           <span class="skill-badge">HTML/CSS</span>
+          <span class="skill-badge">Debugging</span>
         </div>
 
         <p style="font-size:0.75rem;color:#666;margin-bottom:1rem;margin-top:1.5rem;">Tools &amp; Platforms</p>
         <div class="skills-grid">
+          
           <span class="skill-badge">Git</span>
-          <span class="skill-badge">Docker</span>
-          <span class="skill-badge">AWS</span>
           <span class="skill-badge">Linux</span>
+          <span class="skill-badge">Agile/Scrum</span>
           <span class="skill-badge">VS Code</span>
-          <span class="skill-badge">Figma</span>
         </div>
 
-        <p style="font-size:0.75rem;color:#666;margin-bottom:1rem;margin-top:1.5rem;">Soft Skills</p>
+        <p style="font-size:0.75rem;color:#666;margin-bottom:1rem;margin-top:1.5rem;">AI &amp; Data</p>
         <div class="skills-grid">
-          <span class="skill-badge">Problem Solving</span>
-          <span class="skill-badge">Team Player</span>
-          <span class="skill-badge">Fast Learner</span>
-          <span class="skill-badge">Communication</span>
+          <span class="skill-badge">Machine Learning</span>
+          <span class="skill-badge">Neural Networks</span>
+          <span class="skill-badge">Data Processing</span>
+        </div>
+
+        <p style="font-size:0.75rem;color:#666;margin-bottom:1rem;margin-top:1.5rem;">Languages Spoken</p>
+        <div class="skills-grid">
+          <span class="skill-badge">English</span>
+          <span class="skill-badge">Urdu</span>
+          <span class="skill-badge">Hindi</span>
+          <span class="skill-badge">Tamil</span>
         </div>
       </div>
     </div>
@@ -896,7 +724,8 @@
     <p class="contact-sub">Got a role, project, or just want to chat? I'm all ears.</p>
 
     <div class="contact-links">
-      <a href="/cdn-cgi/l/email-protection#4733342f262e2c2f7577777307202a262e2b6924282a" class="contact-btn primarlinkedin.com/in/tanweer-shaikh-925105265" class="contact-btn secondary" target="_blank">LinkedIn</a>
+      <a href="mailto:tshaikh2004@gmail.com" class="contact-btn primary">✉ Email Me</a>
+      <a href="https://linkedin.com/in/tanweer-shaikh-925105265" class="contact-btn secondary" target="_blank">LinkedIn</a>
       <a href="https://github.com/Tvnveed" class="contact-btn secondary" target="_blank">GitHub</a>
     </div>
 
@@ -920,7 +749,7 @@
   </section>
 
   <footer>
-    <p>Crafted with ♥ by <span>Tanweer Shaikh</span> · 2025 · All rights reserved</p>
+    <p>Crafted with ♥ by <span>Tanweer Shaikh</span> · 2026 · All rights reserved</p>
   </footer>
 
   <script>
@@ -943,14 +772,14 @@
 
     // Form submit
     function handleSubmit(btn) {
-      btn.textContent = '✓ Sent! I\'ll be in touch.';
+      btn.textContent = "✓ Sent! I'll be in touch.";
       btn.style.background = '#2a9d8f';
       btn.disabled = true;
     }
 
-    // Typing effect on hero eyebrow
+    // Typing effect
     const eyebrow = document.querySelector('.hero-eyebrow');
-    const text = '> Hello, World! I\'m_';
+    const text = "> Hello, World! I'm_";
     eyebrow.textContent = '';
     let i = 0;
     function type() {
