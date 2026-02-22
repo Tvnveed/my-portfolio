@@ -1,4 +1,4 @@
-    // Scroll reveal
+// Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
@@ -23,4 +23,14 @@
     }
 
     // Typing effect on hero eyebrow
-    const eyebrow = document.querySelector(
+    const eyebrow = document.querySelector('.hero-eyebrow');
+    const text = '> Hello, World! I\'m_';
+    eyebrow.textContent = '';
+    let i = 0;
+    function type() {
+      if (i < text.length) {
+        eyebrow.textContent += text[i++];
+        setTimeout(type, 60);
+      }
+    }
+    setTimeout(type, 400);
