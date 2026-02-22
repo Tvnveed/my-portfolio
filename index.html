@@ -850,7 +850,7 @@
           <div class="cv-detail">Degree, field of study, and any notable achievements or projects.</div>
         </div>
 
-        <a href="TANWEER-SHAIKH-CV.pdf" download class="cv-download">⬇ Download Full CV</a>
+        <a href="#" class="cv-download">⬇ Download Full CV</a>
       </div>
 
       <div>
@@ -896,9 +896,7 @@
     <p class="contact-sub">Got a role, project, or just want to chat? I'm all ears.</p>
 
     <div class="contact-links">
-      <a href="mailto:tshaikh2004@gmail.com" class="contact-btn primary">✉ Email Me</a>
-
-      <a href="https://linkedin.com/in/tanweer-shaikh-925105265" class="contact-btn secondary" target="_blank">LinkedIn</a>
+      <a href="/cdn-cgi/l/email-protection#4733342f262e2c2f7577777307202a262e2b6924282a" class="contact-btn primarlinkedin.com/in/tanweer-shaikh-925105265" class="contact-btn secondary" target="_blank">LinkedIn</a>
       <a href="https://github.com/Tvnveed" class="contact-btn secondary" target="_blank">GitHub</a>
     </div>
 
@@ -956,4 +954,12 @@
     eyebrow.textContent = '';
     let i = 0;
     function type() {
-      if (i < text.length
+      if (i < text.length) {
+        eyebrow.textContent += text[i++];
+        setTimeout(type, 60);
+      }
+    }
+    setTimeout(type, 400);
+  </script>
+</body>
+</html>
